@@ -1,0 +1,84 @@
+org: shankargupta
+app: sample-test-app
+service: aws-python-http-api-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource:
+            - Fn::GetAtt: [ MyDynamoDbTable, Arn ]      
+custom:
+  tableName: HDMT-Table
+
+functions:
+  get:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+  # lambda_handler:
+  #   handler: handler.lambda_handler
+  #   events:
+  #     - httpApi:
+  #         path: /
+  #         method: get
+
+resources:
+  Resources:
+    MyDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.tableName}
+        AttributeDefinitions:
+          - AttributeName: pk
+            AttributeType: S
+          - AttributeName: sk
+            AttributeType: S
+        KeySchema:
+          - AttributeName: pk
+            KeyType: HASH
+          - AttributeName: sk
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+    MyUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: HDMT-User-pool
+        AutoVerifiedAttributes:
+          - email
+        MfaConfiguration: OFF
+        Policies:
+          PasswordPolicy:
+            MinimumLength: 8
+            RequireLowercase: true
+            RequireNumbers: true
+            RequireSymbols: true
+            RequireUppercase: true
+        Schema:
+          - AttributeDataType: String
+            DeveloperOnlyAttribute: false
+            Mutable: true
+            Name: email
+            Required: true
+    MyAppClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: hdmt-client
+        UserPoolId: !Ref MyUserPool
+        GenerateSecret: false
+        SupportedIdentityProviders:
+          - COGNITO
