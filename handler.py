@@ -3,14 +3,14 @@ import boto3
 
 client = boto3.client('dynamodb')
 
-def hello(event, context):
+def get_data(event, context):
     data = client.get_item(TableName='HDMT-Table',
     Key = {
          'pk': {
              'S': '2022'
          },
          'sk': {
-             'S': '2022#1#22'
+             'S': '2022#CU'
          }
      })
     response={
@@ -21,45 +21,49 @@ def hello(event, context):
              'Access-Control-Allow-Origin': '*'
          },
      }
-    # print(data['item'])
     
     return response
-    
-    # dynamodb = boto3.resource('dynamodb')
-    # table = dynamodb.Table('HDMT-Table')
-    
-    # # define the item data
-    # item = {
-    #     'pk': '2022',
-    #     'sk': '2022#1#22#gupta',
-    #     'student_name': 'ravi',
-    #     'student_roll': 123456,
-    #     'panelist_name':'sourabh'
-    # }
-    
-    # # put the item in the table
-    # table.put_item(Item=item)
-    
-    # return 'Success'
 
 
-# def lambda_handler(event, context):
-    # dynamodb = boto3.resource('dynamodb')
-    # table = dynamodb.Table('HDMT-Table')
+def post_data(event, context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    key = {
+        'pk': '2022',
+        'sk': '2022#CU',
+        'entity_name': 'Chandigarh University',
+        'date': "12/12/2022",
+        'admin_name':'sourabh',
+        'placement_coordinator': 'Amanpreet Singh Dhillon',
+        'contact_entity': 8798987876,
+        'email_entity': 'ams@gmail.com'
+    }
     
-    # # define the primary key of the item to retrieve
-    # key = {
-    #     'pk': '2022',
-    #     'sk': '2022#1#22'
-    # }
-    
+    response =table.put_item(Item=key)
     # # get the item from the table
     # response = table.get_item(Key=key)
-    # print(response)
     # item = response['Item']
     
-    # return {
-    #     'statusCode': 200,
-    #     'headers': {'Content-Type': 'application/json'},
-    #     'body': json.dumps(item)
-    # }
+    return {
+        'statusCode': 200,
+        'headers': {'Content-Type': 'application/json'},
+        'body': json.dumps(response)
+    }
+
+def update_data(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    response = table.update_item(
+        Key={
+            'pk': '2022',
+        },
+        UpdateExpression = 'SET admin_name = :val1, contact_entity= :val2',
+        ExpressionAttributeValues={
+            ':val1': "awanti",
+            ':val2': 7456981237
+         }
+    )
+    return {
+        'statusCode': 200,
+        'body': json.dumps(response)
+    }

@@ -7,6 +7,7 @@
     "provider": {
       "name": "aws",
       "runtime": "python3.8",
+      "stage": "dev",
       "iam": {
         "role": {
           "statements": [
@@ -32,7 +33,6 @@
           ]
         }
       },
-      "stage": "dev",
       "region": "us-east-1",
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
@@ -112,6 +112,18 @@
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
               "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-get"
+            }
+          },
+          "PostLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-post"
+            }
+          },
+          "PutLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-put"
             }
           },
           "IamRoleLambdaExecution": {
@@ -194,52 +206,6 @@
               }
             }
           },
-          "EnterpriseLogAccessIamRole": {
-            "Type": "AWS::IAM::Role",
-            "Properties": {
-              "AssumeRolePolicyDocument": {
-                "Version": "2012-10-17",
-                "Statement": [
-                  {
-                    "Effect": "Allow",
-                    "Principal": {
-                      "AWS": "arn:aws:iam::802587217904:root"
-                    },
-                    "Action": "sts:AssumeRole",
-                    "Condition": {
-                      "StringEquals": {
-                        "sts:ExternalId": "ServerlessEnterprise-42a5ae49-72ae-4afd-a8c9-409c6b2dccd3"
-                      }
-                    }
-                  }
-                ]
-              },
-              "Policies": [
-                {
-                  "PolicyName": "LogFilterAccess",
-                  "PolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                      {
-                        "Effect": "Allow",
-                        "Action": [
-                          "logs:FilterLogEvents"
-                        ],
-                        "Resource": [
-                          {
-                            "Fn::GetAtt": [
-                              "GetLogGroup",
-                              "Arn"
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
           "GetLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
@@ -247,9 +213,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1670493508224-2022-12-08T09:58:28.224Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z/aws-python-http-api-project.zip"
               },
-              "Handler": "s_get.handler",
+              "Handler": "handler.get_data",
               "Runtime": "python3.8",
               "FunctionName": "aws-python-http-api-project-dev-get",
               "MemorySize": 1024,
@@ -265,53 +231,260 @@
               "GetLogGroup"
             ]
           },
-          "GetLambdaVersion7Vr5DhvtBQYpwSaUDDO7fUTZDFRek2k63DTKNgl4S4": {
+          "PostLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z/aws-python-http-api-project.zip"
+              },
+              "Handler": "handler.post_data",
+              "Runtime": "python3.8",
+              "FunctionName": "aws-python-http-api-project-dev-post",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "PostLogGroup"
+            ]
+          },
+          "PutLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z/aws-python-http-api-project.zip"
+              },
+              "Handler": "handler.update_data",
+              "Runtime": "python3.8",
+              "FunctionName": "aws-python-http-api-project-dev-put",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "PutLogGroup"
+            ]
+          },
+          "GetLambdaVersionE2nazHpC3nyYMukRv7QHdIBYXBMm1hMClcpxVprQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetLambdaFunction"
               },
-              "CodeSha256": "pqdLkTIeJoTw1jQVkF96kCuZt2OoIJ0xtftys2Y2n8c="
+              "CodeSha256": "g/f9lbIW6RQsZycLg/iKzMNbWQi5190pipOnbb8OlIA="
             }
           },
-          "HttpApi": {
-            "Type": "AWS::ApiGatewayV2::Api",
+          "PostLambdaVersion2mrw0QXyY8L00faBQwdKZ0jg8BmmPAnI5k1a29yU8": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PostLambdaFunction"
+              },
+              "CodeSha256": "g/f9lbIW6RQsZycLg/iKzMNbWQi5190pipOnbb8OlIA="
+            }
+          },
+          "PutLambdaVersionLx5gmrB0nifMavbvcm9Mh2rpb73ILbkjFDJ2008KAU": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PutLambdaFunction"
+              },
+              "CodeSha256": "g/f9lbIW6RQsZycLg/iKzMNbWQi5190pipOnbb8OlIA="
+            }
+          },
+          "ApiGatewayRestApi": {
+            "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
               "Name": "dev-aws-python-http-api-project",
-              "ProtocolType": "HTTP"
+              "EndpointConfiguration": {
+                "Types": [
+                  "EDGE"
+                ]
+              },
+              "Policy": ""
             }
           },
-          "HttpApiLogGroup": {
-            "Type": "AWS::Logs::LogGroup",
+          "ApiGatewayMethodGet": {
+            "Type": "AWS::ApiGateway::Method",
             "Properties": {
-              "LogGroupName": "/aws/http-api/aws-python-http-api-project-dev"
-            }
-          },
-          "HttpApiStage": {
-            "Type": "AWS::ApiGatewayV2::Stage",
-            "Properties": {
-              "ApiId": {
-                "Ref": "HttpApi"
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
               },
-              "StageName": "$default",
-              "AutoDeploy": true,
-              "DefaultRouteSettings": {
-                "DetailedMetricsEnabled": false
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
               },
-              "AccessLogSettings": {
-                "DestinationArn": {
-                  "Fn::GetAtt": [
-                    "HttpApiLogGroup",
-                    "Arn"
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
                   ]
-                },
-                "Format": "{\"requestTime\":\"$context.requestTime\",\"requestId\":\"$context.requestId\",\"apiId\":\"$context.apiId\",\"resourcePath\":\"$context.routeKey\",\"path\":\"$context.path\",\"httpMethod\":\"$context.httpMethod\",\"stage\":\"$context.stage\",\"status\":\"$context.status\",\"integrationStatus\":\"$context.integrationStatus\",\"integrationLatency\":\"$context.integrationLatency\",\"responseLatency\":\"$context.responseLatency\",\"responseLength\":\"$context.responseLength\",\"errorMessage\":\"$context.error.message\",\"format\":\"SLS_HTTP_API_LOG\",\"version\":\"1.0.0\"}"
-              }
+                }
+              },
+              "MethodResponses": []
             },
-            "DependsOn": "HttpApiLogGroup"
+            "DependsOn": [
+              "GetLambdaPermissionApiGateway"
+            ]
           },
-          "GetLambdaPermissionHttpApi": {
+          "ApiGatewayMethodPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "PostLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "PostLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayMethodPut": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "PUT",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "PutLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            },
+            "DependsOn": [
+              "PutLambdaPermissionApiGateway"
+            ]
+          },
+          "ApiGatewayDeployment1670870617076": {
+            "Type": "AWS::ApiGateway::Deployment",
+            "Properties": {
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "StageName": "dev"
+            },
+            "DependsOn": [
+              "ApiGatewayMethodGet",
+              "ApiGatewayMethodPost",
+              "ApiGatewayMethodPut"
+            ]
+          },
+          "GetLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
@@ -340,48 +513,87 @@
                     },
                     ":",
                     {
-                      "Ref": "HttpApi"
+                      "Ref": "ApiGatewayRestApi"
                     },
-                    "/*"
+                    "/*/*"
                   ]
                 ]
               }
             }
           },
-          "HttpApiIntegrationGet": {
-            "Type": "AWS::ApiGatewayV2::Integration",
+          "PostLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
             "Properties": {
-              "ApiId": {
-                "Ref": "HttpApi"
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "PostLambdaFunction",
+                  "Arn"
+                ]
               },
-              "IntegrationType": "AWS_PROXY",
-              "IntegrationUri": {
-                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"GetLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
-              },
-              "PayloadFormatVersion": "2.0",
-              "TimeoutInMillis": 30000
-            }
-          },
-          "HttpApiRouteGet": {
-            "Type": "AWS::ApiGatewayV2::Route",
-            "Properties": {
-              "ApiId": {
-                "Ref": "HttpApi"
-              },
-              "RouteKey": "GET /",
-              "Target": {
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
                 "Fn::Join": [
-                  "/",
+                  "",
                   [
-                    "integrations",
+                    "arn:",
                     {
-                      "Ref": "HttpApiIntegrationGet"
-                    }
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
                   ]
                 ]
               }
-            },
-            "DependsOn": "HttpApiIntegrationGet"
+            }
+          },
+          "PutLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "PutLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
           },
           "MyDynamoDbTable": {
             "Type": "AWS::DynamoDB::Table",
@@ -450,26 +662,6 @@
                 "COGNITO"
               ]
             }
-          },
-          "CWLSubFilterGetLogGroupUsEast1": {
-            "Type": "AWS::Logs::SubscriptionFilter",
-            "Properties": {
-              "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:42a5ae49-72ae-4afd-a8c9-409c6b2dccd3#ngKVhmf3ZVdlhq3fVb#aws-python-http-api-project#dev",
-              "FilterPattern": "?\"REPORT RequestId: \" ?\"SERVERLESS_ENTERPRISE\"",
-              "LogGroupName": {
-                "Ref": "GetLogGroup"
-              }
-            }
-          },
-          "CWLSubFilterHttpApiLogGroupUsEast1": {
-            "Type": "AWS::Logs::SubscriptionFilter",
-            "Properties": {
-              "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:42a5ae49-72ae-4afd-a8c9-409c6b2dccd3#ngKVhmf3ZVdlhq3fVb#aws-python-http-api-project#dev",
-              "FilterPattern": "\"SLS_HTTP_API_LOG\"",
-              "LogGroupName": {
-                "Ref": "HttpApiLogGroup"
-              }
-            }
           }
         },
         "Outputs": {
@@ -481,44 +673,42 @@
               "Name": "sls-aws-python-http-api-project-dev-ServerlessDeploymentBucketName"
             }
           },
-          "EnterpriseLogAccessIamRole": {
-            "Value": {
-              "Fn::GetAtt": [
-                "EnterpriseLogAccessIamRole",
-                "Arn"
-              ]
-            },
-            "Export": {
-              "Name": "sls-aws-python-http-api-project-dev-EnterpriseLogAccessIamRole"
-            }
-          },
           "GetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetLambdaVersion7Vr5DhvtBQYpwSaUDDO7fUTZDFRek2k63DTKNgl4S4"
+              "Ref": "GetLambdaVersionE2nazHpC3nyYMukRv7QHdIBYXBMm1hMClcpxVprQ"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-GetLambdaFunctionQualifiedArn"
             }
           },
-          "HttpApiId": {
-            "Description": "Id of the HTTP API",
+          "PostLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HttpApi"
+              "Ref": "PostLambdaVersion2mrw0QXyY8L00faBQwdKZ0jg8BmmPAnI5k1a29yU8"
             },
             "Export": {
-              "Name": "sls-aws-python-http-api-project-dev-HttpApiId"
+              "Name": "sls-aws-python-http-api-project-dev-PostLambdaFunctionQualifiedArn"
             }
           },
-          "HttpApiUrl": {
-            "Description": "URL of the HTTP API",
+          "PutLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PutLambdaVersionLx5gmrB0nifMavbvcm9Mh2rpb73ILbkjFDJ2008KAU"
+            },
+            "Export": {
+              "Name": "sls-aws-python-http-api-project-dev-PutLambdaFunctionQualifiedArn"
+            }
+          },
+          "ServiceEndpoint": {
+            "Description": "URL of the service endpoint",
             "Value": {
               "Fn::Join": [
                 "",
                 [
                   "https://",
                   {
-                    "Ref": "HttpApi"
+                    "Ref": "ApiGatewayRestApi"
                   },
                   ".execute-api.",
                   {
@@ -527,12 +717,13 @@
                   ".",
                   {
                     "Ref": "AWS::URLSuffix"
-                  }
+                  },
+                  "/dev"
                 ]
               ]
             },
             "Export": {
-              "Name": "sls-aws-python-http-api-project-dev-HttpApiUrl"
+              "Name": "sls-aws-python-http-api-project-dev-ServiceEndpoint"
             }
           }
         }
@@ -619,28 +810,28 @@
           }
         }
       },
-      "logs": {
-        "httpApi": {
-          "format": "{\"requestTime\":\"$context.requestTime\",\"requestId\":\"$context.requestId\",\"apiId\":\"$context.apiId\",\"resourcePath\":\"$context.routeKey\",\"path\":\"$context.path\",\"httpMethod\":\"$context.httpMethod\",\"stage\":\"$context.stage\",\"status\":\"$context.status\",\"integrationStatus\":\"$context.integrationStatus\",\"integrationLatency\":\"$context.integrationLatency\",\"responseLatency\":\"$context.responseLatency\",\"responseLength\":\"$context.responseLength\",\"errorMessage\":\"$context.error.message\",\"format\":\"SLS_HTTP_API_LOG\",\"version\":\"1.0.0\"}"
-        }
-      },
       "vpc": {}
     },
     "custom": {
-      "tableName": "HDMT-Table"
+      "tableName": "HDMT-Table",
+      "pythonRequirements": {
+        "dockerizePip": true
+      }
     },
+    "plugins": [
+      "serverless-python-requirements"
+    ],
     "pluginsData": {},
     "functions": {
       "get": {
-        "handler": "s_get.handler",
+        "handler": "handler.get_data",
         "events": [
           {
-            "httpApi": {
-              "path": "/",
-              "method": "get"
-            },
-            "resolvedMethod": "GET",
-            "resolvedPath": "/"
+            "http": {
+              "path": "",
+              "method": "get",
+              "integration": "AWS_PROXY"
+            }
           }
         ],
         "name": "aws-python-http-api-project-dev-get",
@@ -649,7 +840,45 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "GetLambdaVersion7Vr5DhvtBQYpwSaUDDO7fUTZDFRek2k63DTKNgl4S4"
+        "versionLogicalId": "GetLambdaVersionE2nazHpC3nyYMukRv7QHdIBYXBMm1hMClcpxVprQ"
+      },
+      "post": {
+        "handler": "handler.post_data",
+        "events": [
+          {
+            "http": {
+              "path": "",
+              "method": "post",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "aws-python-http-api-project-dev-post",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "python3.8",
+        "vpc": {},
+        "versionLogicalId": "PostLambdaVersion2mrw0QXyY8L00faBQwdKZ0jg8BmmPAnI5k1a29yU8"
+      },
+      "put": {
+        "handler": "handler.update_data",
+        "events": [
+          {
+            "http": {
+              "path": "",
+              "method": "put",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "aws-python-http-api-project-dev-put",
+        "package": {},
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "python3.8",
+        "vpc": {},
+        "versionLogicalId": "PutLambdaVersionLx5gmrB0nifMavbvcm9Mh2rpb73ILbkjFDJ2008KAU"
       }
     },
     "resources": {
@@ -728,8 +957,7 @@
     "configValidationMode": "warn",
     "serviceFilename": "serverless.yml",
     "initialServerlessConfig": {
-      "org": "shankargupta",
-      "app": "sample-test-app",
+      "org": "kraja",
       "service": "aws-python-http-api-project",
       "frameworkVersion": "3",
       "provider": {
@@ -743,19 +971,19 @@
       },
       "resources": {
         "$ref": "$[\"service\"][\"resources\"]"
+      },
+      "plugins": {
+        "$ref": "$[\"service\"][\"plugins\"]"
       }
     },
-    "app": "sample-test-app",
-    "org": "shankargupta",
+    "org": "kraja",
     "layers": {},
     "isDashboardMonitoringPreconfigured": true,
-    "isDashboardAppPreconfigured": true,
-    "orgUid": "42a5ae49-72ae-4afd-a8c9-409c6b2dccd3",
-    "appUid": "ngKVhmf3ZVdlhq3fVb",
-    "artifact": "C:\\Users\\sgupta\\OneDrive - WatchGuard Technologies Inc\\Desktop\\HDMT\\.serverless\\aws-python-http-api-project.zip"
+    "isDashboardAppPreconfigured": false,
+    "artifact": "C:\\Users\\kraja\\HDMT-Project\\backend\\.serverless\\aws-python-http-api-project.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-python-http-api-project/dev/1670493508224-2022-12-08T09:58:28.224Z",
+    "artifactDirectoryName": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z",
     "artifact": "aws-python-http-api-project.zip"
   }
 }

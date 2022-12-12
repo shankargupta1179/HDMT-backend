@@ -1,11 +1,11 @@
-org: shankargupta
-app: sample-test-app
+org: kraja
 service: aws-python-http-api-project
 frameworkVersion: '3'
 
 provider:
   name: aws
   runtime: python3.8
+  stage: "dev"
   iam:
     role:
       statements:
@@ -21,15 +21,31 @@ provider:
             - Fn::GetAtt: [ MyDynamoDbTable, Arn ]      
 custom:
   tableName: HDMT-Table
+  pythonRequirements:
+    dockerizePip: true
 
 functions:
   get:
-    handler: handler.hello
+    handler: handler.get_data
     events:
-      - httpApi:
+      - http:
           path: /
           method: get
 
+  post:
+    handler: handler.post_data
+    events:
+      - http:
+          path: /
+          method: post
+
+  put:
+    handler: handler.update_data
+    events:
+      - http:
+          path: /
+          method: put
+  
   # lambda_handler:
   #   handler: handler.lambda_handler
   #   events:
@@ -82,3 +98,6 @@ resources:
         GenerateSecret: false
         SupportedIdentityProviders:
           - COGNITO
+
+plugins:
+  - serverless-python-requirements
