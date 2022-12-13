@@ -213,7 +213,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1670924774231-2022-12-13T09:46:14.231Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.get_data",
               "Runtime": "python3.8",
@@ -238,7 +238,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1670924774231-2022-12-13T09:46:14.231Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.post_data",
               "Runtime": "python3.8",
@@ -263,7 +263,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1670924774231-2022-12-13T09:46:14.231Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.update_data",
               "Runtime": "python3.8",
@@ -281,34 +281,34 @@
               "PutLogGroup"
             ]
           },
-          "GetLambdaVersionE2nazHpC3nyYMukRv7QHdIBYXBMm1hMClcpxVprQ": {
+          "GetLambdaVersionSQG0FFMjplO4tmaKEH2ApvNivhcSNoOJdXzbINzSEew": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetLambdaFunction"
               },
-              "CodeSha256": "g/f9lbIW6RQsZycLg/iKzMNbWQi5190pipOnbb8OlIA="
+              "CodeSha256": "q8jIBkvj8knvt5eVhs1z2lMpZ6MapP3bZBz792v2O98="
             }
           },
-          "PostLambdaVersion2mrw0QXyY8L00faBQwdKZ0jg8BmmPAnI5k1a29yU8": {
+          "PostLambdaVersionOcVkaabrq8bruh5CVumjNbL9VyLK8xRjnYSGWAWWhmU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostLambdaFunction"
               },
-              "CodeSha256": "g/f9lbIW6RQsZycLg/iKzMNbWQi5190pipOnbb8OlIA="
+              "CodeSha256": "q8jIBkvj8knvt5eVhs1z2lMpZ6MapP3bZBz792v2O98="
             }
           },
-          "PutLambdaVersionLx5gmrB0nifMavbvcm9Mh2rpb73ILbkjFDJ2008KAU": {
+          "PutLambdaVersionKzx8HdB5yaAsTN6NQCBzAHcpLrbUDivyXIRrmrXQ5iQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PutLambdaFunction"
               },
-              "CodeSha256": "g/f9lbIW6RQsZycLg/iKzMNbWQi5190pipOnbb8OlIA="
+              "CodeSha256": "q8jIBkvj8knvt5eVhs1z2lMpZ6MapP3bZBz792v2O98="
             }
           },
           "ApiGatewayRestApi": {
@@ -470,7 +470,7 @@
               "PutLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1670870617076": {
+          "ApiGatewayDeployment1670924763673": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -662,6 +662,13 @@
                 "COGNITO"
               ]
             }
+          },
+          "MyCodeCommitRepository": {
+            "Type": "AWS::CodeCommit::Repository",
+            "Properties": {
+              "RepositoryName": "HDMT-repo",
+              "RepositoryDescription": "Repositry for HDMT-backend"
+            }
           }
         },
         "Outputs": {
@@ -676,7 +683,7 @@
           "GetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetLambdaVersionE2nazHpC3nyYMukRv7QHdIBYXBMm1hMClcpxVprQ"
+              "Ref": "GetLambdaVersionSQG0FFMjplO4tmaKEH2ApvNivhcSNoOJdXzbINzSEew"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-GetLambdaFunctionQualifiedArn"
@@ -685,7 +692,7 @@
           "PostLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostLambdaVersion2mrw0QXyY8L00faBQwdKZ0jg8BmmPAnI5k1a29yU8"
+              "Ref": "PostLambdaVersionOcVkaabrq8bruh5CVumjNbL9VyLK8xRjnYSGWAWWhmU"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PostLambdaFunctionQualifiedArn"
@@ -694,7 +701,7 @@
           "PutLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PutLambdaVersionLx5gmrB0nifMavbvcm9Mh2rpb73ILbkjFDJ2008KAU"
+              "Ref": "PutLambdaVersionKzx8HdB5yaAsTN6NQCBzAHcpLrbUDivyXIRrmrXQ5iQ"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PutLambdaFunctionQualifiedArn"
@@ -840,7 +847,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "GetLambdaVersionE2nazHpC3nyYMukRv7QHdIBYXBMm1hMClcpxVprQ"
+        "versionLogicalId": "GetLambdaVersionSQG0FFMjplO4tmaKEH2ApvNivhcSNoOJdXzbINzSEew"
       },
       "post": {
         "handler": "handler.post_data",
@@ -859,7 +866,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PostLambdaVersion2mrw0QXyY8L00faBQwdKZ0jg8BmmPAnI5k1a29yU8"
+        "versionLogicalId": "PostLambdaVersionOcVkaabrq8bruh5CVumjNbL9VyLK8xRjnYSGWAWWhmU"
       },
       "put": {
         "handler": "handler.update_data",
@@ -878,7 +885,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PutLambdaVersionLx5gmrB0nifMavbvcm9Mh2rpb73ILbkjFDJ2008KAU"
+        "versionLogicalId": "PutLambdaVersionKzx8HdB5yaAsTN6NQCBzAHcpLrbUDivyXIRrmrXQ5iQ"
       }
     },
     "resources": {
@@ -950,6 +957,13 @@
               "COGNITO"
             ]
           }
+        },
+        "MyCodeCommitRepository": {
+          "Type": "AWS::CodeCommit::Repository",
+          "Properties": {
+            "RepositoryName": "HDMT-repo",
+            "RepositoryDescription": "Repositry for HDMT-backend"
+          }
         }
       },
       "Outputs": {}
@@ -983,7 +997,7 @@
     "artifact": "C:\\Users\\kraja\\HDMT-Project\\backend\\.serverless\\aws-python-http-api-project.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-python-http-api-project/dev/1670870627970-2022-12-12T18:43:47.970Z",
+    "artifactDirectoryName": "serverless/aws-python-http-api-project/dev/1670924774231-2022-12-13T09:46:14.231Z",
     "artifact": "aws-python-http-api-project.zip"
   }
 }

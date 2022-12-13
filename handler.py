@@ -23,26 +23,27 @@ def get_data(event, context):
      }
     
     return response
+    # # get the item from the table
+    # response = table.get_item(Key=key)
+    # item = response['Item']
 
 
 def post_data(event, context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('HDMT-Table')
-    key = {
-        'pk': '2022',
-        'sk': '2022#CU',
-        'entity_name': 'Chandigarh University',
-        'date': "12/12/2022",
-        'admin_name':'sourabh',
-        'placement_coordinator': 'Amanpreet Singh Dhillon',
-        'contact_entity': 8798987876,
-        'email_entity': 'ams@gmail.com'
-    }
+    # key = {
+    #     'pk': '2022',
+    #     'sk': '2022#CU',
+    #     'entity_name': 'Chandigarh University',
+    #     'date': "12/12/2022",
+    #     'admin_name':'sourabh',
+    #     'placement_coordinator': 'Amanpreet Singh Dhillon',
+    #     'contact_entity': 8798987876,
+    #     'email_entity': 'ams@gmail.com'
+    # }
     
+    key = json.loads(event.get('body'))
     response =table.put_item(Item=key)
-    # # get the item from the table
-    # response = table.get_item(Key=key)
-    # item = response['Item']
     
     return {
         'statusCode': 200,

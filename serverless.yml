@@ -99,5 +99,11 @@ resources:
         SupportedIdentityProviders:
           - COGNITO
 
+    MyCodeCommitRepository:
+      Type: 'AWS::CodeCommit::Repository'
+      Properties:
+        RepositoryName: 'HDMT-repo'
+        RepositoryDescription: 'Repositry for HDMT-backend'
+
 plugins:
   - serverless-python-requirements
