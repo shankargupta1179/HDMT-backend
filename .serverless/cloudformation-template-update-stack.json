@@ -89,6 +89,42 @@
         "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-put"
       }
     },
+    "GetUnderscorepanelistUnderscoredataLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-get_panelist_data"
+      }
+    },
+    "PostUnderscorepanelistUnderscoredataLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-post_panelist_data"
+      }
+    },
+    "GetUnderscorepanelUnderscoredataLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-get_panel_data"
+      }
+    },
+    "PostUnderscorepanelUnderscoredataLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-post_panel_data"
+      }
+    },
+    "GetUnderscoreentityUnderscoredataLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-get_entity_data"
+      }
+    },
+    "PostUnderscoreentityUnderscoredataLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/aws-python-http-api-project-dev-post_entity_data"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -192,7 +228,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-python-http-api-project/dev/1670924774231-2022-12-13T09:46:14.231Z/aws-python-http-api-project.zip"
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
         },
         "Handler": "handler.get_data",
         "Runtime": "python3.8",
@@ -217,7 +253,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-python-http-api-project/dev/1670924774231-2022-12-13T09:46:14.231Z/aws-python-http-api-project.zip"
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
         },
         "Handler": "handler.post_data",
         "Runtime": "python3.8",
@@ -242,7 +278,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/aws-python-http-api-project/dev/1670924774231-2022-12-13T09:46:14.231Z/aws-python-http-api-project.zip"
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
         },
         "Handler": "handler.update_data",
         "Runtime": "python3.8",
@@ -260,34 +296,244 @@
         "PutLogGroup"
       ]
     },
-    "GetLambdaVersionSQG0FFMjplO4tmaKEH2ApvNivhcSNoOJdXzbINzSEew": {
+    "GetUnderscorepanelistUnderscoredataLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
+        },
+        "Handler": "handler.get_panelist_data",
+        "Runtime": "python3.8",
+        "FunctionName": "aws-python-http-api-project-dev-get_panelist_data",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetUnderscorepanelistUnderscoredataLogGroup"
+      ]
+    },
+    "PostUnderscorepanelistUnderscoredataLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
+        },
+        "Handler": "handler.post_panelist_data",
+        "Runtime": "python3.8",
+        "FunctionName": "aws-python-http-api-project-dev-post_panelist_data",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "PostUnderscorepanelistUnderscoredataLogGroup"
+      ]
+    },
+    "GetUnderscorepanelUnderscoredataLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
+        },
+        "Handler": "handler.get_panel_data",
+        "Runtime": "python3.8",
+        "FunctionName": "aws-python-http-api-project-dev-get_panel_data",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetUnderscorepanelUnderscoredataLogGroup"
+      ]
+    },
+    "PostUnderscorepanelUnderscoredataLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
+        },
+        "Handler": "handler.post_panel_data",
+        "Runtime": "python3.8",
+        "FunctionName": "aws-python-http-api-project-dev-post_panel_data",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "PostUnderscorepanelUnderscoredataLogGroup"
+      ]
+    },
+    "GetUnderscoreentityUnderscoredataLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
+        },
+        "Handler": "handler.get_entity_data",
+        "Runtime": "python3.8",
+        "FunctionName": "aws-python-http-api-project-dev-get_entity_data",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetUnderscoreentityUnderscoredataLogGroup"
+      ]
+    },
+    "PostUnderscoreentityUnderscoredataLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/aws-python-http-api-project/dev/1670952824537-2022-12-13T17:33:44.537Z/aws-python-http-api-project.zip"
+        },
+        "Handler": "handler.post_entity_data",
+        "Runtime": "python3.8",
+        "FunctionName": "aws-python-http-api-project-dev-post_entity_data",
+        "MemorySize": 1024,
+        "Timeout": 6,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "PostUnderscoreentityUnderscoredataLogGroup"
+      ]
+    },
+    "GetLambdaVersionx4yhRntQ4vBDm5KzM7bW9shYqIXuPpw33cd1t7sTU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetLambdaFunction"
         },
-        "CodeSha256": "q8jIBkvj8knvt5eVhs1z2lMpZ6MapP3bZBz792v2O98="
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
       }
     },
-    "PostLambdaVersionOcVkaabrq8bruh5CVumjNbL9VyLK8xRjnYSGWAWWhmU": {
+    "PostLambdaVersionDlYEQm3PmFAo5XC9OvHPHrDp87lw0escE1O3OgJxog": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PostLambdaFunction"
         },
-        "CodeSha256": "q8jIBkvj8knvt5eVhs1z2lMpZ6MapP3bZBz792v2O98="
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
       }
     },
-    "PutLambdaVersionKzx8HdB5yaAsTN6NQCBzAHcpLrbUDivyXIRrmrXQ5iQ": {
+    "PutLambdaVersionx1BQGH7ioSJiRvCxH2YVD7hIaHgStn41QcIFhhNs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "PutLambdaFunction"
         },
-        "CodeSha256": "q8jIBkvj8knvt5eVhs1z2lMpZ6MapP3bZBz792v2O98="
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
+      }
+    },
+    "GetUnderscorepanelistUnderscoredataLambdaVersion2GRIUhicimmFF0UaQKJOdWpuxP8xWecdTqfNvkP2Ra8": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetUnderscorepanelistUnderscoredataLambdaFunction"
+        },
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
+      }
+    },
+    "PostUnderscorepanelistUnderscoredataLambdaVersionUax8kYr7Q9b7c4YOxta0PWMp9esNgfgG8YVhDkc": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PostUnderscorepanelistUnderscoredataLambdaFunction"
+        },
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
+      }
+    },
+    "GetUnderscorepanelUnderscoredataLambdaVersionIEHnWmf79OPCzvRtRQFflm85jn5x1evepIp4VHN4SA": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetUnderscorepanelUnderscoredataLambdaFunction"
+        },
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
+      }
+    },
+    "PostUnderscorepanelUnderscoredataLambdaVersionhJNQTZGh12MfKNeHmeo73Wm1xNrAWfIZUCFaK8uk": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PostUnderscorepanelUnderscoredataLambdaFunction"
+        },
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
+      }
+    },
+    "GetUnderscoreentityUnderscoredataLambdaVersionvCcza4EFiwSHnyz07jmDi8u0FlDYCpavKnDJKUjyjk": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetUnderscoreentityUnderscoredataLambdaFunction"
+        },
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
+      }
+    },
+    "PostUnderscoreentityUnderscoredataLambdaVersions6cGQJVfwkQtn0xpMSWGyzDgdnAn4rsAaszr6dZfM": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PostUnderscoreentityUnderscoredataLambdaFunction"
+        },
+        "CodeSha256": "H1vwAyD5tZVhZ/RP0a9IDizPxspblZfdl2pcBJPOPV0="
       }
     },
     "ApiGatewayRestApi": {
@@ -300,6 +546,51 @@
           ]
         },
         "Policy": ""
+      }
+    },
+    "ApiGatewayResourcePanelist": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "panelist",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourcePanel": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "panel",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceEntity": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "entity",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
       }
     },
     "ApiGatewayMethodGet": {
@@ -449,7 +740,283 @@
         "PutLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1670924763673": {
+    "ApiGatewayMethodPanelistGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourcePanelist"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetUnderscorepanelistUnderscoredataLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "GetUnderscorepanelistUnderscoredataLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayMethodPanelistPost": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourcePanelist"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "PostUnderscorepanelistUnderscoredataLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "PostUnderscorepanelistUnderscoredataLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayMethodPanelGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourcePanel"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetUnderscorepanelUnderscoredataLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "GetUnderscorepanelUnderscoredataLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayMethodPanelPost": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourcePanel"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "PostUnderscorepanelUnderscoredataLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "PostUnderscorepanelUnderscoredataLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayMethodEntityGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceEntity"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetUnderscoreentityUnderscoredataLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "GetUnderscoreentityUnderscoredataLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayMethodEntityPost": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "POST",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceEntity"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "PostUnderscoreentityUnderscoredataLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      },
+      "DependsOn": [
+        "PostUnderscoreentityUnderscoredataLambdaPermissionApiGateway"
+      ]
+    },
+    "ApiGatewayDeployment1670952814893": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -460,7 +1027,13 @@
       "DependsOn": [
         "ApiGatewayMethodGet",
         "ApiGatewayMethodPost",
-        "ApiGatewayMethodPut"
+        "ApiGatewayMethodPut",
+        "ApiGatewayMethodPanelistGet",
+        "ApiGatewayMethodPanelistPost",
+        "ApiGatewayMethodPanelGet",
+        "ApiGatewayMethodPanelPost",
+        "ApiGatewayMethodEntityGet",
+        "ApiGatewayMethodEntityPost"
       ]
     },
     "GetLambdaPermissionApiGateway": {
@@ -543,6 +1116,228 @@
         "FunctionName": {
           "Fn::GetAtt": [
             "PutLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetUnderscorepanelistUnderscoredataLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUnderscorepanelistUnderscoredataLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "PostUnderscorepanelistUnderscoredataLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PostUnderscorepanelistUnderscoredataLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetUnderscorepanelUnderscoredataLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUnderscorepanelUnderscoredataLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "PostUnderscorepanelUnderscoredataLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PostUnderscorepanelUnderscoredataLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "GetUnderscoreentityUnderscoredataLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetUnderscoreentityUnderscoredataLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
+    },
+    "PostUnderscoreentityUnderscoredataLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "PostUnderscoreentityUnderscoredataLambdaFunction",
             "Arn"
           ]
         },
@@ -662,7 +1457,7 @@
     "GetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetLambdaVersionSQG0FFMjplO4tmaKEH2ApvNivhcSNoOJdXzbINzSEew"
+        "Ref": "GetLambdaVersionx4yhRntQ4vBDm5KzM7bW9shYqIXuPpw33cd1t7sTU"
       },
       "Export": {
         "Name": "sls-aws-python-http-api-project-dev-GetLambdaFunctionQualifiedArn"
@@ -671,7 +1466,7 @@
     "PostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PostLambdaVersionOcVkaabrq8bruh5CVumjNbL9VyLK8xRjnYSGWAWWhmU"
+        "Ref": "PostLambdaVersionDlYEQm3PmFAo5XC9OvHPHrDp87lw0escE1O3OgJxog"
       },
       "Export": {
         "Name": "sls-aws-python-http-api-project-dev-PostLambdaFunctionQualifiedArn"
@@ -680,10 +1475,64 @@
     "PutLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PutLambdaVersionKzx8HdB5yaAsTN6NQCBzAHcpLrbUDivyXIRrmrXQ5iQ"
+        "Ref": "PutLambdaVersionx1BQGH7ioSJiRvCxH2YVD7hIaHgStn41QcIFhhNs"
       },
       "Export": {
         "Name": "sls-aws-python-http-api-project-dev-PutLambdaFunctionQualifiedArn"
+      }
+    },
+    "GetUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetUnderscorepanelistUnderscoredataLambdaVersion2GRIUhicimmFF0UaQKJOdWpuxP8xWecdTqfNvkP2Ra8"
+      },
+      "Export": {
+        "Name": "sls-aws-python-http-api-project-dev-GetUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn"
+      }
+    },
+    "PostUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PostUnderscorepanelistUnderscoredataLambdaVersionUax8kYr7Q9b7c4YOxta0PWMp9esNgfgG8YVhDkc"
+      },
+      "Export": {
+        "Name": "sls-aws-python-http-api-project-dev-PostUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn"
+      }
+    },
+    "GetUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetUnderscorepanelUnderscoredataLambdaVersionIEHnWmf79OPCzvRtRQFflm85jn5x1evepIp4VHN4SA"
+      },
+      "Export": {
+        "Name": "sls-aws-python-http-api-project-dev-GetUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn"
+      }
+    },
+    "PostUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PostUnderscorepanelUnderscoredataLambdaVersionhJNQTZGh12MfKNeHmeo73Wm1xNrAWfIZUCFaK8uk"
+      },
+      "Export": {
+        "Name": "sls-aws-python-http-api-project-dev-PostUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn"
+      }
+    },
+    "GetUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetUnderscoreentityUnderscoredataLambdaVersionvCcza4EFiwSHnyz07jmDi8u0FlDYCpavKnDJKUjyjk"
+      },
+      "Export": {
+        "Name": "sls-aws-python-http-api-project-dev-GetUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn"
+      }
+    },
+    "PostUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PostUnderscoreentityUnderscoredataLambdaVersions6cGQJVfwkQtn0xpMSWGyzDgdnAn4rsAaszr6dZfM"
+      },
+      "Export": {
+        "Name": "sls-aws-python-http-api-project-dev-PostUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {

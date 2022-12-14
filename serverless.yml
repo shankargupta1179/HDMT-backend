@@ -45,6 +45,47 @@ functions:
       - http:
           path: /
           method: put
+  get_panelist_data:
+    handler: handler.get_panelist_data
+    events:
+      - http:
+          path: /panelist
+          method: get
+
+  post_panelist_data:
+    handler: handler.post_panelist_data
+    events:
+      - http:
+          path: /panelist
+          method: post
+
+  get_panel_data:
+    handler: handler.get_panel_data
+    events:
+      - http:
+          path: /panel
+          method: get
+
+  post_panel_data:
+    handler: handler.post_panel_data
+    events:
+      - http:
+          path: /panel
+          method: post
+  
+  get_entity_data:
+    handler: handler.get_entity_data
+    events:
+      - http:
+          path: /entity
+          method: get
+
+  post_entity_data:
+    handler: handler.post_entity_data
+    events:
+      - http:
+          path: /entity
+          method: post
   
   # lambda_handler:
   #   handler: handler.lambda_handler

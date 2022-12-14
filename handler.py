@@ -68,3 +68,102 @@ def update_data(event,context):
         'statusCode': 200,
         'body': json.dumps(response)
     }
+
+def get_panelist_data(event,context):
+    data = client.get_item(TableName='HDMT-Table',
+    Key = {
+         'pk': {
+             'S': '2022'
+         },
+         'sk': {
+             'S': '2022#CU'
+         }
+     })
+    response={
+         'statusCode':200,
+         'body': json.dumps(data),
+         'headers': {
+             'Content-Type': 'application/json',
+             'Access-Control-Allow-Origin': '*'
+         },
+     }
+    
+    return response
+
+def post_panelist_data(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    key = json.loads(event.get('body'))
+    response =table.put_item(Item=key)
+    
+    return {
+        'statusCode': 200,
+        'headers': {'Content-Type': 'application/json'},
+        'body': json.dumps(response)
+    }
+
+def get_panel_data(event,context):
+    data = client.get_item(TableName='HDMT-Table',
+    Key = {
+         'pk': {
+             'S': '2022'
+         },
+         'sk': {
+             'S': '2022#CU'
+         }
+     })
+    response={
+         'statusCode':200,
+         'body': json.dumps(data),
+         'headers': {
+             'Content-Type': 'application/json',
+             'Access-Control-Allow-Origin': '*'
+         },
+     }
+    
+    return response
+
+def post_panel_data(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    key = json.loads(event.get('body'))
+    response =table.put_item(Item=key)
+    
+    return {
+        'statusCode': 200,
+        'headers': {'Content-Type': 'application/json'},
+        'body': json.dumps(response)
+    }
+
+def get_entity_data(event,context):
+    data = client.get_item(TableName='HDMT-Table',
+    Key = {
+         'pk': {
+             'S': '2022'
+         },
+         'sk': {
+             'S': '2022#CU'
+         }
+     })
+    response={
+         'statusCode':200,
+         'body': json.dumps(data),
+         'headers': {
+             'Content-Type': 'application/json',
+             'Access-Control-Allow-Origin': '*'
+         },
+     }
+    
+    return response
+
+def post_entity_data(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    key = json.loads(event.get('body'))
+    response =table.put_item(Item=key)
+    
+    return {
+        'statusCode': 200,
+        'headers': {'Content-Type': 'application/json'},
+        'body': json.dumps(response)
+    }
