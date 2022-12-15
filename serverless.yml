@@ -1,4 +1,4 @@
-org: kraja
+org: shankargupta
 service: aws-python-http-api-project
 frameworkVersion: '3'
 
@@ -38,6 +38,7 @@ functions:
       - http:
           path: /
           method: post
+          cors: true
 
   put:
     handler: handler.update_data
@@ -140,11 +141,16 @@ resources:
         SupportedIdentityProviders:
           - COGNITO
 
-    MyCodeCommitRepository:
-      Type: 'AWS::CodeCommit::Repository'
-      Properties:
-        RepositoryName: 'HDMT-repo'
-        RepositoryDescription: 'Repositry for HDMT-backend'
+    # MyCodeCommitRepository:
+    #   Type: AWS::CodeCommit::Repository
+    #   Properties:
+    #     RepositoryName: HDMT-repo
+    #     RepositoryDescription: Repository for HDMT-backend
+    #     Code:
+    #       BranchName: main
+    #       S3:
+    #         Bucket: aws-python-http-api-proj-serverlessdeploymentbuck-1s5kqtssfzz1t
+    #         Key: aws-python-http-api-project.zip
 
 plugins:
   - serverless-python-requirements
