@@ -149,18 +149,22 @@ def post_panel_data(event,context):
     }
 
 def get_entity_data(event,context):
-    data = client.get_item(TableName='HDMT-Table',
-    Key = {
-         'pk': {
-             'S': '2022'
-         },
-         'sk': {
-             'S': '2022#CU'
-         }
-     })
+    # data = client.get_item(TableName='HDMT-Table',
+    # Key = {
+    #      'pk': {
+    #          'S': '2022'
+    #      },
+    #      'sk': {
+    #          'S': '2022#CU'
+    #      }
+    #  })
+    
+    table = client.Table('HDMT-Table')
+    records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'entity'})['Items']
+    # items = response['Items']
     response={
          'statusCode':200,
-         'body': json.dumps(data),
+         'body': json.dumps(records),
          'headers': {
              'Content-Type': 'application/json',
              'Access-Control-Allow-Origin': '*'
@@ -172,11 +176,22 @@ def get_entity_data(event,context):
 def post_entity_data(event,context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('HDMT-Table')
-    key = json.loads(event.get('body'))
-    response =table.put_item(Item=key)
+    # key = json.loads(event.get('body'))
+    # response =table.put_item(Item=key)
     
+    key = json.loads(event.get('body')) 
+    key['pk'] = 'entity'
+    key['sk'] = key['entity_name']
+    response =table.put_item(Item=key)
+
     return {
         'statusCode': 200,
-        'headers': {'Content-Type': 'application/json'},
+        'headers': {
+            "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": 'true',
+            "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+        },
         'body': json.dumps(response)
     }
+    

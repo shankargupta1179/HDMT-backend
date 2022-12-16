@@ -1,4 +1,4 @@
-org: shankargupta
+org: kraja
 service: aws-python-http-api-project
 frameworkVersion: '3'
 
@@ -12,7 +12,6 @@ provider:
         - Effect: Allow
           Action:
             - dynamodb:Query
-            - dynamodb:Scan
             - dynamodb:GetItem
             - dynamodb:PutItem
             - dynamodb:UpdateItem
@@ -46,6 +45,7 @@ functions:
       - http:
           path: /
           method: put
+
   get_panelist_data:
     handler: handler.get_panelist_data
     events:
@@ -87,6 +87,7 @@ functions:
       - http:
           path: /entity
           method: post
+          cors: true
   
   # lambda_handler:
   #   handler: handler.lambda_handler
