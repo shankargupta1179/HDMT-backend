@@ -59,6 +59,7 @@ functions:
       - http:
           path: /panelist
           method: post
+          cors: true
 
   get_panel_data:
     handler: handler.get_panel_data
@@ -73,6 +74,7 @@ functions:
       - http:
           path: /panel
           method: post
+          cors: true
   
   get_entity_data:
     handler: handler.get_entity_data
@@ -86,6 +88,21 @@ functions:
     events:
       - http:
           path: /entity
+          method: post
+          cors: true
+
+  get_hiring_data:
+    handler: handler.get_hiring_data
+    events:
+      - http:
+          path: /drive
+          method: get
+
+  post_hiring_data:
+    handler: handler.post_hiring_data
+    events:
+      - http:
+          path: /drive
           method: post
           cors: true
   
