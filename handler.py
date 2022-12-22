@@ -120,7 +120,7 @@ def post_panelist_data(event,context):
     table = dynamodb.Table('HDMT-Table')
     key = json.loads(event.get('body')) 
     key['pk'] = 'panelist'
-    key['sk'] = 'panelist_email'
+    key['sk'] = key['panelist_email']
     response =table.put_item(Item=key)
     
     return {
@@ -153,7 +153,7 @@ def post_panel_data(event,context):
     table = dynamodb.Table('HDMT-Table')
     key = json.loads(event.get('body')) 
     key['pk'] = 'panel'
-    key['sk'] = 'panel_title'
+    key['sk'] = key['panel_title']
     response =table.put_item(Item=key)
     
     return {
