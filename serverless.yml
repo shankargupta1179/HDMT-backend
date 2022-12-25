@@ -1,4 +1,4 @@
-org: kraja
+org: shankargupta
 service: aws-python-http-api-project
 frameworkVersion: '3'
 
@@ -90,6 +90,15 @@ functions:
           path: /entity
           method: post
           cors: true
+  
+  update_entity_data:
+    handler: handler.update_entity_data
+    events:
+      - http:
+          path: /entity
+          method: put
+          cors: true
+
 
   get_hiring_data:
     handler: handler.get_hiring_data

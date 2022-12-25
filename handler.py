@@ -202,10 +202,42 @@ def post_entity_data(event,context):
         'body': json.dumps(response)
     }
 
+def update_entity_data(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    key = json.loads(event.get('body')) 
+    response = table.update_item(
+        Key={
+            'pk':'entity',
+            'sk':key['entity_name']
+        },
+        UpdateExpression = 'SET coordinator_contact= :contact,coordinator_email=:email,coordinator_name=:name',
+        ExpressionAttributeValues={
+            ':contact': key['coordinator_contact'],
+            ':email':key['coordinator_email'],
+            ':name':key['coordinator_name']
+        }
+    )
+    return {
+        'statusCode': 200,
+        'headers': {
+        "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+       "Access-Control-Allow-Origin": '*',
+       "Access-Control-Allow-Credentials": 'true',
+       "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+        },
+        'body': json.dumps(response)
+    }
+
 def get_hiring_data(event,context):
     table = client.Table('HDMT-Table')
-    records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'drive'})['Items']
     # items = response['Items']
+    # print(event.get('queryStringParameters'));
+    if(event.get('queryStringParameters')==None):
+        records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'drive'})['Items']
+    else:
+        # print(event.get('queryStringParameters').get('title'))
+        records = table.query(KeyConditionExpression="pk=:pk and sk=:sk",ExpressionAttributeValues={':pk':'drive',':sk':event.get('queryStringParameters').get('title')})['Items']
     response={
          'statusCode':200,
          'body': json.dumps(records),
