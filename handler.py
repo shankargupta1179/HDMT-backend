@@ -211,11 +211,11 @@ def update_entity_data(event,context):
             'pk':'entity',
             'sk':key['entity_name']
         },
-        UpdateExpression = 'SET coordinator_contact= :contact,coordinator_email=:email,coordinator_name=:name',
+        UpdateExpression = 'SET coordinator_contact0= :contact,coordinator_email0=:email,coordinator_name0=:name',
         ExpressionAttributeValues={
-            ':contact': key['coordinator_contact'],
-            ':email':key['coordinator_email'],
-            ':name':key['coordinator_name']
+            ':contact': key['coordinator_contact0'],
+            ':email':key['coordinator_email0'],
+            ':name':key['coordinator_name0']
         }
     )
     return {

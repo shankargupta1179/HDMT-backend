@@ -266,7 +266,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.get_data",
               "Runtime": "python3.8",
@@ -291,7 +291,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.post_data",
               "Runtime": "python3.8",
@@ -316,7 +316,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.update_data",
               "Runtime": "python3.8",
@@ -341,7 +341,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.get_panelist_data",
               "Runtime": "python3.8",
@@ -366,7 +366,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.post_panelist_data",
               "Runtime": "python3.8",
@@ -391,7 +391,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.get_panel_data",
               "Runtime": "python3.8",
@@ -416,7 +416,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.post_panel_data",
               "Runtime": "python3.8",
@@ -441,7 +441,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.get_entity_data",
               "Runtime": "python3.8",
@@ -466,7 +466,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.post_entity_data",
               "Runtime": "python3.8",
@@ -491,7 +491,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.update_entity_data",
               "Runtime": "python3.8",
@@ -516,7 +516,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.get_hiring_data",
               "Runtime": "python3.8",
@@ -541,7 +541,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z/aws-python-http-api-project.zip"
+                "S3Key": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z/aws-python-http-api-project.zip"
               },
               "Handler": "handler.post_hiring_data",
               "Runtime": "python3.8",
@@ -559,124 +559,124 @@
               "PostUnderscorehiringUnderscoredataLogGroup"
             ]
           },
-          "GetLambdaVersionLHxEO362TyiA8JP6YAixwncVia7nLY7c2aUGCtQ0pM": {
+          "GetLambdaVersionRbhnTYgNAjoU9YmpP9V4toHAsqGViN3sCkkFgoDc29o": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "PostLambdaVersionrqIBBWM5EWCgVtp1XNwiYDMd50v8mhu0YmaUtEU3eI": {
+          "PostLambdaVersioncne48uCAAoThpIMqKhxsoKRc2zUdyFr6CDGsygxY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "PutLambdaVersionvXrSLnRxfsP4jte3cxJBQcBaCVdlq6SNN42Z8Bumtk": {
+          "PutLambdaVersionSEAqmWAwktdGhzyQDLOOsw3ZhNj52q7QH5Z6JWQtweg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PutLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "GetUnderscorepanelistUnderscoredataLambdaVersionC8Uxpsl70tnQLNdOoBaWoeUWT3Ttbbs0ehYAvxug": {
+          "GetUnderscorepanelistUnderscoredataLambdaVersionybm5FEL5unMlRzLpYTev7nOFsZxLd58kNWGjqnXMMGc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUnderscorepanelistUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "PostUnderscorepanelistUnderscoredataLambdaVersionwWA7jtzrWmpqWpragRlw8lhd1fEqJf1Rt62hKBAJ8": {
+          "PostUnderscorepanelistUnderscoredataLambdaVersionzXO3Wz8r3CvO9JEEHqbcnmii0aUsDvK0gIiYi8gd4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostUnderscorepanelistUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "GetUnderscorepanelUnderscoredataLambdaVersionQB7RhdbyTwXxrXu9B7XVrt3yLorESwk3YVNMb8o8": {
+          "GetUnderscorepanelUnderscoredataLambdaVersionqmyFl7UINdJ5JT9daW5fDXc5CqreficbszPL5QKM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUnderscorepanelUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "PostUnderscorepanelUnderscoredataLambdaVersionpNjkuyndPRVnKUTcjTv2ingcROhYRM43ja9nokHugM": {
+          "PostUnderscorepanelUnderscoredataLambdaVersionB9KXeiuqTNSTYVTBYWRwQ4oTfkPLJmYrgDfqcO3Z8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostUnderscorepanelUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "GetUnderscoreentityUnderscoredataLambdaVersionmBRoIsp4s3o3Fd9P1U6nNiLUlSBlsYVs0ZZV1P19z3E": {
+          "GetUnderscoreentityUnderscoredataLambdaVersionHoSaKhNIMw8D6jxIrpGf36o2WjvesRx87RwifvpIiw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUnderscoreentityUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "PostUnderscoreentityUnderscoredataLambdaVersionRK38JFiLKy9jFEeDye95K6HsexJgvcNsQHKgu9b6v78": {
+          "PostUnderscoreentityUnderscoredataLambdaVersionIojx2HgVxiJ22pTruJAXq4luWK439aArOWTCp2nNk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostUnderscoreentityUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "UpdateUnderscoreentityUnderscoredataLambdaVersionuRwndaTf44op6iebkBtyl4efmmn8nYqN5jvE9bGfxU": {
+          "UpdateUnderscoreentityUnderscoredataLambdaVersionhOMQQYvW9y62oORJq1a0nyp6eWnjl3Se2Y2wc4SGis": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateUnderscoreentityUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "GetUnderscorehiringUnderscoredataLambdaVersion48f3o9muommTurWT8MJ892to5p0N1PD3pRKUqDoH8B4": {
+          "GetUnderscorehiringUnderscoredataLambdaVersionsn4lR0Pstv4VZl8safDdpZRyqs9jc1ilgiCuU8hP3BI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUnderscorehiringUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
-          "PostUnderscorehiringUnderscoredataLambdaVersione4F1SVSlFIz9UgBq0NdJ3aT1Y68OmRfslSwTlPLN0": {
+          "PostUnderscorehiringUnderscoredataLambdaVersioncLK4MIcyw6ad7LdsgWEWwr4q6PojYsDglG0UOcc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PostUnderscorehiringUnderscoredataLambdaFunction"
               },
-              "CodeSha256": "3l9xWGd7EDJzbBNT9LKcjUnabmLBD8tldjwhkU/p6qA="
+              "CodeSha256": "QIFWMkJ1y3XcKdot6s+0MwuR38XrCVVMSSfAjg6UBfM="
             }
           },
           "ApiGatewayRestApi": {
@@ -1540,7 +1540,7 @@
               "PostUnderscorehiringUnderscoredataLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1671965568096": {
+          "ApiGatewayDeployment1672080691416": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -2093,7 +2093,7 @@
           "GetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetLambdaVersionLHxEO362TyiA8JP6YAixwncVia7nLY7c2aUGCtQ0pM"
+              "Ref": "GetLambdaVersionRbhnTYgNAjoU9YmpP9V4toHAsqGViN3sCkkFgoDc29o"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-GetLambdaFunctionQualifiedArn"
@@ -2102,7 +2102,7 @@
           "PostLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostLambdaVersionrqIBBWM5EWCgVtp1XNwiYDMd50v8mhu0YmaUtEU3eI"
+              "Ref": "PostLambdaVersioncne48uCAAoThpIMqKhxsoKRc2zUdyFr6CDGsygxY"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PostLambdaFunctionQualifiedArn"
@@ -2111,7 +2111,7 @@
           "PutLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PutLambdaVersionvXrSLnRxfsP4jte3cxJBQcBaCVdlq6SNN42Z8Bumtk"
+              "Ref": "PutLambdaVersionSEAqmWAwktdGhzyQDLOOsw3ZhNj52q7QH5Z6JWQtweg"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PutLambdaFunctionQualifiedArn"
@@ -2120,7 +2120,7 @@
           "GetUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUnderscorepanelistUnderscoredataLambdaVersionC8Uxpsl70tnQLNdOoBaWoeUWT3Ttbbs0ehYAvxug"
+              "Ref": "GetUnderscorepanelistUnderscoredataLambdaVersionybm5FEL5unMlRzLpYTev7nOFsZxLd58kNWGjqnXMMGc"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-GetUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn"
@@ -2129,7 +2129,7 @@
           "PostUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostUnderscorepanelistUnderscoredataLambdaVersionwWA7jtzrWmpqWpragRlw8lhd1fEqJf1Rt62hKBAJ8"
+              "Ref": "PostUnderscorepanelistUnderscoredataLambdaVersionzXO3Wz8r3CvO9JEEHqbcnmii0aUsDvK0gIiYi8gd4"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PostUnderscorepanelistUnderscoredataLambdaFunctionQualifiedArn"
@@ -2138,7 +2138,7 @@
           "GetUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUnderscorepanelUnderscoredataLambdaVersionQB7RhdbyTwXxrXu9B7XVrt3yLorESwk3YVNMb8o8"
+              "Ref": "GetUnderscorepanelUnderscoredataLambdaVersionqmyFl7UINdJ5JT9daW5fDXc5CqreficbszPL5QKM"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-GetUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn"
@@ -2147,7 +2147,7 @@
           "PostUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostUnderscorepanelUnderscoredataLambdaVersionpNjkuyndPRVnKUTcjTv2ingcROhYRM43ja9nokHugM"
+              "Ref": "PostUnderscorepanelUnderscoredataLambdaVersionB9KXeiuqTNSTYVTBYWRwQ4oTfkPLJmYrgDfqcO3Z8"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PostUnderscorepanelUnderscoredataLambdaFunctionQualifiedArn"
@@ -2156,7 +2156,7 @@
           "GetUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUnderscoreentityUnderscoredataLambdaVersionmBRoIsp4s3o3Fd9P1U6nNiLUlSBlsYVs0ZZV1P19z3E"
+              "Ref": "GetUnderscoreentityUnderscoredataLambdaVersionHoSaKhNIMw8D6jxIrpGf36o2WjvesRx87RwifvpIiw"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-GetUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn"
@@ -2165,7 +2165,7 @@
           "PostUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostUnderscoreentityUnderscoredataLambdaVersionRK38JFiLKy9jFEeDye95K6HsexJgvcNsQHKgu9b6v78"
+              "Ref": "PostUnderscoreentityUnderscoredataLambdaVersionIojx2HgVxiJ22pTruJAXq4luWK439aArOWTCp2nNk"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PostUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn"
@@ -2174,7 +2174,7 @@
           "UpdateUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateUnderscoreentityUnderscoredataLambdaVersionuRwndaTf44op6iebkBtyl4efmmn8nYqN5jvE9bGfxU"
+              "Ref": "UpdateUnderscoreentityUnderscoredataLambdaVersionhOMQQYvW9y62oORJq1a0nyp6eWnjl3Se2Y2wc4SGis"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-UpdateUnderscoreentityUnderscoredataLambdaFunctionQualifiedArn"
@@ -2183,7 +2183,7 @@
           "GetUnderscorehiringUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUnderscorehiringUnderscoredataLambdaVersion48f3o9muommTurWT8MJ892to5p0N1PD3pRKUqDoH8B4"
+              "Ref": "GetUnderscorehiringUnderscoredataLambdaVersionsn4lR0Pstv4VZl8safDdpZRyqs9jc1ilgiCuU8hP3BI"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-GetUnderscorehiringUnderscoredataLambdaFunctionQualifiedArn"
@@ -2192,7 +2192,7 @@
           "PostUnderscorehiringUnderscoredataLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PostUnderscorehiringUnderscoredataLambdaVersione4F1SVSlFIz9UgBq0NdJ3aT1Y68OmRfslSwTlPLN0"
+              "Ref": "PostUnderscorehiringUnderscoredataLambdaVersioncLK4MIcyw6ad7LdsgWEWwr4q6PojYsDglG0UOcc"
             },
             "Export": {
               "Name": "sls-aws-python-http-api-project-dev-PostUnderscorehiringUnderscoredataLambdaFunctionQualifiedArn"
@@ -2338,7 +2338,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "GetLambdaVersionLHxEO362TyiA8JP6YAixwncVia7nLY7c2aUGCtQ0pM"
+        "versionLogicalId": "GetLambdaVersionRbhnTYgNAjoU9YmpP9V4toHAsqGViN3sCkkFgoDc29o"
       },
       "post": {
         "handler": "handler.post_data",
@@ -2374,7 +2374,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PostLambdaVersionrqIBBWM5EWCgVtp1XNwiYDMd50v8mhu0YmaUtEU3eI"
+        "versionLogicalId": "PostLambdaVersioncne48uCAAoThpIMqKhxsoKRc2zUdyFr6CDGsygxY"
       },
       "put": {
         "handler": "handler.update_data",
@@ -2393,7 +2393,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PutLambdaVersionvXrSLnRxfsP4jte3cxJBQcBaCVdlq6SNN42Z8Bumtk"
+        "versionLogicalId": "PutLambdaVersionSEAqmWAwktdGhzyQDLOOsw3ZhNj52q7QH5Z6JWQtweg"
       },
       "get_panelist_data": {
         "handler": "handler.get_panelist_data",
@@ -2412,7 +2412,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "GetUnderscorepanelistUnderscoredataLambdaVersionC8Uxpsl70tnQLNdOoBaWoeUWT3Ttbbs0ehYAvxug"
+        "versionLogicalId": "GetUnderscorepanelistUnderscoredataLambdaVersionybm5FEL5unMlRzLpYTev7nOFsZxLd58kNWGjqnXMMGc"
       },
       "post_panelist_data": {
         "handler": "handler.post_panelist_data",
@@ -2448,7 +2448,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PostUnderscorepanelistUnderscoredataLambdaVersionwWA7jtzrWmpqWpragRlw8lhd1fEqJf1Rt62hKBAJ8"
+        "versionLogicalId": "PostUnderscorepanelistUnderscoredataLambdaVersionzXO3Wz8r3CvO9JEEHqbcnmii0aUsDvK0gIiYi8gd4"
       },
       "get_panel_data": {
         "handler": "handler.get_panel_data",
@@ -2467,7 +2467,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "GetUnderscorepanelUnderscoredataLambdaVersionQB7RhdbyTwXxrXu9B7XVrt3yLorESwk3YVNMb8o8"
+        "versionLogicalId": "GetUnderscorepanelUnderscoredataLambdaVersionqmyFl7UINdJ5JT9daW5fDXc5CqreficbszPL5QKM"
       },
       "post_panel_data": {
         "handler": "handler.post_panel_data",
@@ -2503,7 +2503,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PostUnderscorepanelUnderscoredataLambdaVersionpNjkuyndPRVnKUTcjTv2ingcROhYRM43ja9nokHugM"
+        "versionLogicalId": "PostUnderscorepanelUnderscoredataLambdaVersionB9KXeiuqTNSTYVTBYWRwQ4oTfkPLJmYrgDfqcO3Z8"
       },
       "get_entity_data": {
         "handler": "handler.get_entity_data",
@@ -2522,7 +2522,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "GetUnderscoreentityUnderscoredataLambdaVersionmBRoIsp4s3o3Fd9P1U6nNiLUlSBlsYVs0ZZV1P19z3E"
+        "versionLogicalId": "GetUnderscoreentityUnderscoredataLambdaVersionHoSaKhNIMw8D6jxIrpGf36o2WjvesRx87RwifvpIiw"
       },
       "post_entity_data": {
         "handler": "handler.post_entity_data",
@@ -2558,7 +2558,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PostUnderscoreentityUnderscoredataLambdaVersionRK38JFiLKy9jFEeDye95K6HsexJgvcNsQHKgu9b6v78"
+        "versionLogicalId": "PostUnderscoreentityUnderscoredataLambdaVersionIojx2HgVxiJ22pTruJAXq4luWK439aArOWTCp2nNk"
       },
       "update_entity_data": {
         "handler": "handler.update_entity_data",
@@ -2594,7 +2594,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "UpdateUnderscoreentityUnderscoredataLambdaVersionuRwndaTf44op6iebkBtyl4efmmn8nYqN5jvE9bGfxU"
+        "versionLogicalId": "UpdateUnderscoreentityUnderscoredataLambdaVersionhOMQQYvW9y62oORJq1a0nyp6eWnjl3Se2Y2wc4SGis"
       },
       "get_hiring_data": {
         "handler": "handler.get_hiring_data",
@@ -2613,7 +2613,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "GetUnderscorehiringUnderscoredataLambdaVersion48f3o9muommTurWT8MJ892to5p0N1PD3pRKUqDoH8B4"
+        "versionLogicalId": "GetUnderscorehiringUnderscoredataLambdaVersionsn4lR0Pstv4VZl8safDdpZRyqs9jc1ilgiCuU8hP3BI"
       },
       "post_hiring_data": {
         "handler": "handler.post_hiring_data",
@@ -2649,7 +2649,7 @@
         "timeout": 6,
         "runtime": "python3.8",
         "vpc": {},
-        "versionLogicalId": "PostUnderscorehiringUnderscoredataLambdaVersione4F1SVSlFIz9UgBq0NdJ3aT1Y68OmRfslSwTlPLN0"
+        "versionLogicalId": "PostUnderscorehiringUnderscoredataLambdaVersioncLK4MIcyw6ad7LdsgWEWwr4q6PojYsDglG0UOcc"
       }
     },
     "resources": {
@@ -2754,7 +2754,7 @@
     "artifact": "C:\\Users\\sgupta\\OneDrive - WatchGuard Technologies Inc\\Desktop\\HDMT\\.serverless\\aws-python-http-api-project.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-python-http-api-project/dev/1671965582262-2022-12-25T10:53:02.262Z",
+    "artifactDirectoryName": "serverless/aws-python-http-api-project/dev/1672080727340-2022-12-26T18:52:07.340Z",
     "artifact": "aws-python-http-api-project.zip"
   }
 }
