@@ -169,8 +169,11 @@ def post_panel_data(event,context):
 
 def get_entity_data(event,context):
     table = client.Table('HDMT-Table')
-    records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'entity'})['Items']
-    # items = response['Items']
+    if(event.get('queryStringParameters')==None):
+        records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'entity'})['Items']
+    else:
+        records = table.query(KeyConditionExpression="pk=:pk and sk=:sk",ExpressionAttributeValues={':pk':'entity',':sk':event.get('queryStringParameters').get('entity_name')})['Items']
+    
     response={
          'statusCode':200,
          'body': json.dumps(records),
