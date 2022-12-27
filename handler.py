@@ -169,8 +169,10 @@ def post_panel_data(event,context):
 
 def get_entity_data(event,context):
     table = client.Table('HDMT-Table')
-    records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'entity'})['Items']
-    # items = response['Items']
+    if(event.get('queryStringParameters')==None):
+        records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'entity'})['Items']
+    else:
+        records = table.query(KeyConditionExpression="pk=:pk and sk=:sk",ExpressionAttributeValues={':pk':'entity',':sk':event.get('queryStringParameters').get('entity_name')})['Items']
     response={
          'statusCode':200,
          'body': json.dumps(records),
@@ -268,4 +270,40 @@ def post_hiring_data(event,context):
         },
         'body': json.dumps(response)
     }
+
+def get_candidates(event,context):
+    table = client.Table('HDMT-Table')
+    if(event.get('queryStringParameters')==None):
+        records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'candidate'})['Items']
+    else:   
+        records = table.query(KeyConditionExpression="pk=:pk and begins_with(sk,:sk)",ExpressionAttributeValues={':pk':'candidate',':sk':event.get('queryStringParameters').get('entity')})['Items']
+    response={
+            'statusCode':200,
+            'body': json.dumps(records),
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+        }
+
+    return response
+
+def post_candidate(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
     
+    key = json.loads(event.get('body')) 
+    key['pk'] = 'candidate'
+    key['sk'] = key['entity']+'#'+key['candidate_email']
+    response =table.put_item(Item=key)
+
+    return {
+        'statusCode': 200,
+        'headers': {
+            "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": 'true',
+            "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+        },
+        'body': json.dumps(response)
+    }    

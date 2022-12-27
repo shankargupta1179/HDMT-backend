@@ -114,6 +114,23 @@ functions:
           path: /drive
           method: post
           cors: true
+
+  get_candidates:
+    handler: handler.get_candidates
+    events:
+      - http:
+          path: /candidate
+          method: get
+          cors: true
+
+  post_candidate:
+    handler: handler.post_candidate
+    events:
+      - http:
+          path: /candidate
+          method: post
+          cors: true
+
   
   # lambda_handler:
   #   handler: handler.lambda_handler
