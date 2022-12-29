@@ -313,7 +313,7 @@ def post_candidate(event,context):
 def get_specific_drive_panelist(event,context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('HDMT-Table')
-    records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'panelist'})['Items']
+    records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'drive-panelist'})['Items']
     response={
             'statusCode':200,
             'body': json.dumps(records),
@@ -329,7 +329,7 @@ def post_specific_drive_panelist(event,context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('HDMT-Table')
     key = json.loads(event.get('body')) 
-    key['pk'] = 'panelist'
+    key['pk'] = 'drive-panelist'
     key['sk'] = key['title'] 
     response = table.put_item(Item=key)
     return {
