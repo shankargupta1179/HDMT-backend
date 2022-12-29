@@ -309,3 +309,36 @@ def post_candidate(event,context):
         },
         'body': json.dumps(response)
     }    
+
+def get_specific_drive_panelist(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'panelist'})['Items']
+    response={
+            'statusCode':200,
+            'body': json.dumps(records),
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+        }
+    return response
+
+
+def post_specific_drive_panelist(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    key = json.loads(event.get('body')) 
+    key['pk'] = 'panelist'
+    key['sk'] = key['title'] 
+    response = table.putItem(Item=key)
+    return {
+        'statusCode': 200,
+        'headers': {
+            "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": 'true',
+            "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+        },
+        'body': json.dumps(response)
+    }  

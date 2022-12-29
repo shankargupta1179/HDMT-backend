@@ -131,6 +131,21 @@ functions:
           method: post
           cors: true
 
+  get_specific_drive_panelist:
+    handler: handler.get_specific_drive_panelist
+    events:
+      - http:
+          path: /specific-drive-panelist
+          method: get
+          cors: true
+
+  post_specific_drive_panelist:
+    handler: handler.post_specific_drive_panelist
+    events:
+      - http:
+          path: /specific-drive-panelist
+          method: post
+          cors: true
   
   # lambda_handler:
   #   handler: handler.lambda_handler
