@@ -292,10 +292,12 @@ def post_candidate(event,context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('HDMT-Table')
     
-    key = json.loads(event.get('body')) 
-    key['pk'] = 'candidate'
-    key['sk'] = key['entity']+'#'+key['candidate_email']
-    response =table.put_item(Item=key)
+    records = json.loads(event.get('body')) 
+    with table.batch_writer() as batch:
+        for record in records:
+            record['pk'] = 'candidate'
+            record['sk'] = record['entity']+'#'+record['candidate_email']
+            response =table.put_item(Item=record)
 
     return {
         'statusCode': 200,
