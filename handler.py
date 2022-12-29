@@ -331,7 +331,7 @@ def post_specific_drive_panelist(event,context):
     key = json.loads(event.get('body')) 
     key['pk'] = 'panelist'
     key['sk'] = key['title'] 
-    response = table.putItem(Item=key)
+    response = table.put_item(Item=key)
     return {
         'statusCode': 200,
         'headers': {
