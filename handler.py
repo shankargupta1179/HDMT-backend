@@ -116,23 +116,67 @@ def get_panelist_data(event,context):
     return response
 
 def post_panelist_data(event,context):
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('HDMT-Table')
-    key = json.loads(event.get('body')) 
-    key['pk'] = 'panelist'
-    key['sk'] = key['panelist_email']
-    response =table.put_item(Item=key)
-    
-    return {
-        'statusCode': 200,
-        'headers': {
-            "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
-            "Access-Control-Allow-Origin": '*',
-            "Access-Control-Allow-Credentials": 'true',
-            "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+    # dynamodb = boto3.resource('dynamodb')
+    # table = dynamodb.Table('HDMT-Table')
+    key = json.loads(event["body"]) 
+    # key['pk'] = 'panelist'
+    # key['sk'] = key['panelist_email'] 
+    # response =table.put_item(Item=key)
+    client = boto3.client('cognito-idp')
+    response = client.admin_create_user(
+        UserPoolId='us-east-1_2mpkLzGvv',
+        Username=key['email'],
+        UserAttributes=key['attr'],
+        TemporaryPassword= 'Defaultpass@123',
+        ForceAliasCreation=False,
+        
+        DesiredDeliveryMediums=[
+            'EMAIL',
+        ],
+        ClientMetadata={
+            'string': 'string'
+        }
+    )
+    attrArr = response['User']['Attributes']
+    sub = attrArr[0]
+
+    username = str(sub['Value'])
+    response = client.admin_update_user_attributes(
+    UserPoolId='us-east-1_2mpkLzGvv',
+    Username=username,
+    UserAttributes=[
+        {
+            'Name': 'email_verified',
+            'Value': 'true'
         },
-        'body': json.dumps(response)
+    ],
+    ClientMetadata={
+        'string': 'string'
     }
+   )
+    return {"statusCode" : 200, "body" : json.dumps(response, indent=4, sort_keys=True, default=str)}
+    # return {
+    #     'statusCode': 200,
+    #     'headers': {
+    #         "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+    #         "Access-Control-Allow-Origin": '*',
+    #         "Access-Control-Allow-Credentials": 'true',
+    #         "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+    #     },
+    #     'body': json.dumps(response2)
+    # }
+
+    
+    # return {
+    #     'statusCode': 200,
+    #     'headers': {
+    #         "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+    #         "Access-Control-Allow-Origin": '*',
+    #         "Access-Control-Allow-Credentials": 'true',
+    #         "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+    #     },
+    #     'body': json.dumps(response2)
+    # }
 
 def get_panel_data(event,context):
     table = client.Table('HDMT-Table')

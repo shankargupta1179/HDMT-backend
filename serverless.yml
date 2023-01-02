@@ -18,10 +18,19 @@ provider:
             - dynamodb:DeleteItem
           Resource:
             - Fn::GetAtt: [ MyDynamoDbTable, Arn ]      
+        - Effect: Allow
+          Action:
+            - cognito-identity:*
+            - cognito-sync:*
+            - cognito-idp:*
+            - lambda:*
+          Resource: "arn:aws:cognito-idp:us-east-1:663818246851:userpool/us-east-1_2mpkLzGvv"
 custom:
   tableName: HDMT-Table
   pythonRequirements:
     dockerizePip: true
+
+
 
 functions:
   get:
