@@ -429,76 +429,40 @@ def post_specific_drive_panelist(event,context):
         },
         'body': json.dumps(response)
     }  
+
 def get_panel_data(event,context):
-
     table = client.Table('HDMT-Table')
-
     # records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'panel'})['Items']
-
     if(event.get('queryStringParameters')==None):
-
         records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'panel'})['Items']
-
     else:
-
-        records = table.query(KeyConditionExpression="pk=:pk and sk=:sk",ExpressionAttributeValues={':pk':'panel',':sk':event.get('queryStringParameters').get('title')})['Items']
-
-
-
+        records = table.query(KeyConditionExpression="pk=:pk and begins_with(sk,:sk)",ExpressionAttributeValues={':pk':'panel',':sk':event.get('queryStringParameters').get('title')})['Items']
     response={
-
          'statusCode':200,
-
          'body': json.dumps(records),
-
          'headers': {
-
              'Content-Type': 'application/json',
-
              'Access-Control-Allow-Origin': '*'
-
          },
-
      }
-
-   
-
     return response
 
 
 
 def post_panel_data(event,context):
-
     dynamodb = boto3.resource('dynamodb')
-
     table = dynamodb.Table('HDMT-Table')
-
     key = json.loads(event.get('body'))
-
     key['pk'] = 'panel'
-
-    key['sk'] = key['title']
-
+    key['sk'] = key['title']+"#"+ key['panel_title']
     response =table.put_item(Item=key)
-
-   
-
     return {
-
         'statusCode': 200,
-
         'headers': {
-
             "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
-
             "Access-Control-Allow-Origin": '*',
-
             "Access-Control-Allow-Credentials": 'true',
-
             "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
-
         },
-
         'body': json.dumps(response)
-
     }
