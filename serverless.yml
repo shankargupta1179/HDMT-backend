@@ -61,6 +61,14 @@ functions:
       - http:
           path: /panelist
           method: get
+  
+  get_all_panelists:
+    handler: handler.get_all_panelists
+    events:
+      - http:
+          path: /panelist
+          method: get
+          cors: true
 
   post_panelist_data:
     handler: handler.post_panelist_data
