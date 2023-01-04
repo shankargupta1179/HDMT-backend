@@ -78,6 +78,14 @@ functions:
           method: post
           cors: true
 
+  update_panelist:
+    handler: handler.update_panelist
+    events:
+      - http:
+          path: /panelist
+          method: put
+          cors: true
+
   get_panel_data:
     handler: handler.get_panel_data
     events:
