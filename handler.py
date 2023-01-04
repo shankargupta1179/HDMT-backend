@@ -296,11 +296,9 @@ def update_entity_data(event,context):
             'pk':'entity',
             'sk':key['entity_name']
         },
-        UpdateExpression = 'SET coordinator_contact0= :contact,coordinator_email0=:email,coordinator_name0=:name',
+        UpdateExpression = 'SET contactDetails= :contact',
         ExpressionAttributeValues={
-            ':contact': key['coordinator_contact0'],
-            ':email':key['coordinator_email0'],
-            ':name':key['coordinator_name0']
+            ':contact': key['contactDetails']
         }
     )
     return {
