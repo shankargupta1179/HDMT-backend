@@ -217,6 +217,28 @@ def post_panelist_data(event,context):
     #     'body': json.dumps(response2)
     # }
 
+def update_panelist(event,response):
+  client = boto3.client('cognito-idp')
+  key=json.loads(event["body"])
+  response = client.admin_update_user_attributes(
+    UserPoolId='us-east-1_2mpkLzGvv',
+    Username= key['email'] ,
+    UserAttributes= key['attr'],
+    ClientMetadata={
+        'string': 'string'
+    }
+)
+  return {
+        'statusCode': 200,
+        'headers': {
+            "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": 'true',
+            "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+        },
+        'body': json.dumps(response)
+    }
+
 def get_panel_data(event,context):
     table = client.Table('HDMT-Table')
     records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'panel'})['Items']
