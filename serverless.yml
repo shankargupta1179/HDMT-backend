@@ -163,6 +163,23 @@ functions:
           path: /specific-drive-panelist
           method: post
           cors: true
+
+  get_panel_candidate:
+    handler: handler.get_panel_candidate
+    events:
+      - http:
+          path: /panel-candidate
+          method: get
+          cors: true
+
+  post_panel_candidate:
+    handler: handler.post_panel_candidate
+    events:
+      - http:
+          path: /panel-candidate
+          method: post
+          cors: true
+
   
   # lambda_handler:
   #   handler: handler.lambda_handler
