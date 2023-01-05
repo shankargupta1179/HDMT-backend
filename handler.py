@@ -464,3 +464,39 @@ def post_panel_data(event,context):
         },
         'body': json.dumps(response)
     }
+
+def post_panel_candidate(event,context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('HDMT-Table')
+    key = json.loads(event.get('body'))
+    key['pk'] = "candidate_panel"
+    key['sk'] = key['candidate_email']+"#"+key['panel_title']
+    response =table.put_item(Item=key)
+    return {
+        'statusCode': 200,
+        'headers': {
+            "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            "Access-Control-Allow-Origin": '*',
+            "Access-Control-Allow-Credentials": 'true',
+            "Access-Control-Allow-Methods": 'GET,POST,PUT,OPTIONS'
+        },
+        'body': json.dumps(response)
+    }
+
+def get_panel_candidate(event,context):
+    table = client.Table('HDMT-Table')
+    # records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'panel'})['Items']
+    if(event.get('queryStringParameters')==None):
+        records = table.query(KeyConditionExpression="pk=:pk",ExpressionAttributeValues={':pk':'candidate_panel'})['Items']
+    else:
+        records = table.query(KeyConditionExpression="pk=:pk and begins_with(sk,:sk)",ExpressionAttributeValues={':pk':'candidate_panel',':sk':event.get('queryStringParameters').get('candidate_email')})['Items']
+    response={
+         'statusCode':200,
+         'body': json.dumps(records),
+         'headers': {
+             'Content-Type': 'application/json',
+             'Access-Control-Allow-Origin': '*'
+         },
+     }
+    return response
+
