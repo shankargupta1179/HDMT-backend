@@ -519,6 +519,6 @@ def get_panel_candidate(event,context):
              'Content-Type': 'application/json',
              'Access-Control-Allow-Origin': '*'
          },
-     }
+    }
     return response
 
